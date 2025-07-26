@@ -16,7 +16,7 @@ public:
 
     RenderDelegate(DocumentModel* doc, QObject* parent = nullptr);
     ~RenderDelegate(){};
-    void RenderToImage(QList<Poppler::Page*>& pageData);
+    void RenderToImage(QList<std::shared_ptr<Poppler::Page>>& pageData);
 signals:
     void RenderResult(int count, QList<QImage>& result);
 };

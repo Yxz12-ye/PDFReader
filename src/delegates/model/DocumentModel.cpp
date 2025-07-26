@@ -33,7 +33,7 @@ void DocumentModel::getPage()
     int renderNum = total < 10 ? total : 10;
     for (int i = 0; i < renderNum; ++i)
     {
-        pageData.append(document->page(i).release());
+        pageData.append(std::shared_ptr<Poppler::Page>(document->page(i).release()));
         // document->page(i)->renderToImage().save(QString::number(i)+".png"); 不报错代码
         // pageData[i]->renderToImage().save(QString::number(i)+".png"); 报错代码
     }

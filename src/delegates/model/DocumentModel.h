@@ -14,10 +14,10 @@ public:
     void getPage();// 临时
 private:
     std::unique_ptr<Poppler::Document> document;
-    QList<Poppler::Page*> pageData;
+    QList<std::shared_ptr<Poppler::Page>> pageData;
     QList<QImage> image;
 signals:
-    void startRender(QList<Poppler::Page*>& pageData);
+    void startRender(QList<std::shared_ptr<Poppler::Page>>& pageData);
     void RenderingEnd();
     void temp(int count, QList<QImage>& a);
 public slots:

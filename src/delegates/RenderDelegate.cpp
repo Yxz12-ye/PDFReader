@@ -6,7 +6,7 @@ RenderDelegate::RenderDelegate(DocumentModel *doc, QObject *parent)
 {
 }
 
-void RenderDelegate::RenderToImage(QList<Poppler::Page*> &pageData)
+void RenderDelegate::RenderToImage(QList<std::shared_ptr<Poppler::Page>>& pageData)
 {
     QImage temp;
     for(int i = 0;i<pageData.size();++i){
