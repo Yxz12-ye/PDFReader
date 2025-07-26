@@ -19,6 +19,7 @@ private:
     RenderDelegate* rendering;
     QVBoxLayout *pdf;
     QList<QLabel*> pages;
+    int currentPage;
 public:
     MainWindow(/* args */);
     ~MainWindow(){};

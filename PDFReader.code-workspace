@@ -100,7 +100,9 @@
 			"unordered_set": "cpp",
 			"xfacet": "cpp",
 			"xmemory": "cpp",
-			"xtr1common": "cpp"
+			"xtr1common": "cpp",
+			"qscrollarea": "cpp",
+			"qlabel": "cpp"
 		}
 	}
 }

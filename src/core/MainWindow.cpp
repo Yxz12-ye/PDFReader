@@ -1,6 +1,6 @@
 #include "MainWindow.h"
 
-MainWindow::MainWindow()
+MainWindow::MainWindow():currentPage(0)
 {
     doc = new DocumentModel();
     file = new OpenFileDelegate(doc);
@@ -42,10 +42,13 @@ MainWindow::MainWindow()
 
 void MainWindow::addPage(int count)
 {
-    for (int i = 0; i < count; ++i)
+    if(currentPage >= count) return ;
+    int temp = count-currentPage;
+    for (int i = 0; i < temp; ++i)
     {
         pages.append(new QLabel(QString::number(i)));
         pdf->addWidget(pages.back());
+        currentPage++;
     }
 }
 
@@ -53,6 +56,10 @@ void MainWindow::renderPage(int count, QList<QImage>& imageList)
 {
     addPage(count);
     for(int i = 0 ;i<count;++i){
+        if(pages[i]){
+            pages[i]->clear();
+        }
+
         pages[i]->setPixmap(QPixmap::fromImage(imageList[i]));
     }
 }

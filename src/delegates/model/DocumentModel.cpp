@@ -29,6 +29,7 @@ bool DocumentModel::isNULL()
 
 void DocumentModel::getPage()
 {
+    pageData.clear();
     int total = document->numPages();
     int renderNum = total < 10 ? total : 10;
     for (int i = 0; i < renderNum; ++i)
